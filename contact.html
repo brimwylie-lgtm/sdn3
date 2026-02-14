@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sports Digital Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-blue: #003366; --accent-red: #CC0000; --accent-orange: #FF6600; --light-gray: #F5F5F5; --dark-gray: #333333; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-gray); line-height: 1.6; }
+        nav { position: fixed; top: 0; left: 0; right: 0; background: var(--primary-blue); backdrop-filter: blur(10px); padding: 1.5rem 5%; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { height: 50px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: white; font-weight: 500; font-size: 0.95rem; transition: all 0.3s ease; position: relative; }
+        .nav-links a.active { color: var(--accent-orange); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--accent-orange); transition: width 0.3s ease; }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .cta-button { background: var(--accent-orange); color: white !important; padding: 0.7rem 1.8rem; border-radius: 30px; }
+        .cta-button::after { display: none; }
+        .page-header { padding: 150px 5% 80px; background: linear-gradient(135deg, var(--primary-blue) 0%, #004d99 100%); color: white; text-align: center; }
+        .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1.5rem; letter-spacing: 2px; }
+        .page-header p { font-size: 1.3rem; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+        .contact-section { padding: 6rem 5%; background: var(--primary-blue); }
+        .contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+        .contact-info h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: white; margin-bottom: 2rem; }
+        .contact-info p { font-size: 1.1rem; color: #666; line-height: 1.8; margin-bottom: 2.5rem; }
+        .contact-methods { display: flex; flex-direction: column; gap: 2rem; }
+        .contact-method { display: flex; gap: 1.5rem; align-items: start; }
+        .contact-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-red), var(--accent-orange)); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+        .contact-details h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: white; margin-bottom: 0.5rem; }
+        .contact-details p { color: #666; line-height: 1.6; }
+        .contact-details a { color: var(--accent-orange); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .contact-details a:hover { color: white; }
+        .contact-form { background: var(--light-gray); padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); }
+        .contact-form h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: white; margin-bottom: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 600; color: white; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .form-group input,
+        .form-group select,
+        .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 1rem; transition: all 0.3s ease; }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { outline: none; border-color: var(--accent-orange); }
+        .form-group textarea { min-height: 150px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .btn-submit { background: linear-gradient(135deg, var(--accent-red), var(--accent-orange)); color: white; padding: 1.2rem 3rem; border: none; border-radius: 50px; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; width: 100%; }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(204, 0, 0, 0.3); }
+        .quick-contact { padding: 4rem 5%; background: var(--light-gray); }
+        .quick-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .quick-container h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: white; margin-bottom: 3rem; }
+        .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .quick-card { background: var(--primary-blue); padding: 2.5rem; border-radius: 20px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; }
+        .quick-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); }
+        .quick-card-icon { width: 70px; height: 70px; background: linear-gradient(135deg, var(--accent-red), var(--accent-orange)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem; }
+        .quick-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: white; margin-bottom: 0.8rem; }
+        .quick-card p { color: #666; line-height: 1.6; margin-bottom: 1rem; }
+        .quick-card a { color: var(--accent-orange); font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+        .quick-card a:hover { color: white; }
+        footer { background: var(--primary-blue); color: white; padding: 4rem 5% 2rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-about p { opacity: 0.8; line-height: 1.8; }
+        .footer-section h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.8rem; }
+        .footer-section a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s ease; }
+        .footer-section a:hover { color: var(--accent-orange); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; text-align: center; opacity: 0.6; }
+        @media (max-width: 1024px) {
+            .contact-container { grid-template-columns: 1fr; gap: 3rem; }
+            .quick-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <img src="https://www.sdnetwork.ca/wp-content/uploads/2023/03/SDN-Light.png" alt="Sports Digital Network" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="advertisers.html">Advertisers</a></li>
+                <li><a href="venues.html">Venues</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="cta-button active">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>Let's Connect</h1>
+        <p>Ready to reach your community where they actually gather? Let's talk.</p>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Whether you're looking to advertise in your local market, expand nationally, or explore partnership opportunities for your venue, we're here to help.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p>Speak directly with our team<br>
+                            <a href="tel:647-405-4988">647-405-4988</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>We'll respond within 24 hours<br>
+                            <a href="/cdn-cgi/l/email-protection#cba2a5ada48bb8afa5aebfbca4b9a0e5a8aa"><span class="__cf_email__" data-cfemail="1871767e77586b7c767d6c6f776a73367b79">[email&#160;protected]</span></a></p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Headquarters</h3>
+                            <p>Toronto, Ontario<br>Serving communities across Canada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel">
+                    </div>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text">
+                    </div>
+                    <div class="form-group">
+                        <label>I'm interested in... *</label>
+                        <select required>
+                            <option value="">Select an option</option>
+                            <option value="local">Local Advertising</option>
+                            <option value="national">National Campaign</option>
+                            <option value="venue">Venue Partnership</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder="Tell us about your goals and how we can help..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="quick-contact">
+        <div class="quick-container">
+            <h2>Looking For Something Specific?</h2>
+            <div class="quick-grid">
+                <div class="quick-card">
+                    <div class="quick-card-icon">🎯</div>
+                    <h3>Advertiser Info</h3>
+                    <p>Learn about campaign options, pricing, and audience reach</p>
+                    <a href="advertisers.html">Explore Solutions →</a>
+                </div>
+                <div class="quick-card">
+                    <div class="quick-card-icon">🏟️</div>
+                    <h3>Venue Partnership</h3>
+                    <p>Interested in bringing SDN to your facility?</p>
+                    <a href="venues.html">Learn More →</a>
+                </div>
+                <div class="quick-card">
+                    <div class="quick-card-icon">📊</div>
+                    <h3>Case Studies</h3>
+                    <p>See how brands achieved results with SDN</p>
+                    <a href="resources.html#case-studies">View Success Stories →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <p>Canada's premium digital out-of-home network, connecting brands with communities in the spaces where people come together.</p>
+            </div>
+            <div class="footer-section">
+                <h4>For Advertisers</h4>
+                <ul>
+                    <li><a href="advertisers.html#national">National Campaigns</a></li>
+                    <li><a href="advertisers.html#local">Local Reach</a></li>
+                    <li><a href="resources.html#case-studies">Case Studies</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="venues.html">Partner Venues</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="tel:647-405-4988">647-405-4988</a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#c6afa8a0a986b5a2a8a3b2b1a9b4ade8a5a7"><span class="__cf_email__" data-cfemail="c8a1a6aea788bbaca6adbcbfa7ba
