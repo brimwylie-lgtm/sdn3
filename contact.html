@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sports Digital Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy: #003366; --red: #CC0000; --orange: #FF6600; --cream: #FAFAF8; --gray-mid: #666666; --white: #FFFFFF; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Work Sans', sans-serif; color: #333; line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; background: var(--navy); z-index: 1000; padding: 1.2rem 0; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 45px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:not(.btn-contact):hover { color: var(--orange); }
+        .btn-contact { background: var(--red); padding: 0.65rem 1.5rem; border-radius: 6px; }
+        .page-hero { background: linear-gradient(135deg, var(--navy), #004d99); padding: 140px 5% 80px; text-align: center; color: var(--white); }
+        .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1.5rem; }
+        .page-hero p { font-size: 1.2rem; opacity: 0.9; }
+        .contact-section { padding: 7rem 5%; }
+        .contact-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; }
+        .contact-info h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--navy); margin-bottom: 2rem; }
+        .contact-info p { font-size: 1.1rem; color: var(--gray-mid); margin-bottom: 2.5rem; line-height: 1.8; }
+        .contact-method { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+        .contact-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--red), var(--orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+        .contact-method h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem; }
+        .contact-method a { color: var(--red); font-weight: 600; text-decoration: none; }
+        .contact-form { background: var(--cream); padding: 3rem; border-radius: 12px; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--navy); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.9rem; border: 2px solid #ddd; border-radius: 8px; font-family: 'Work Sans', sans-serif; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--orange); }
+        .form-group textarea { min-height: 150px; resize: vertical; }
+        .btn-submit { background: linear-gradient(135deg, var(--red), var(--orange)); color: var(--white); padding: 1.1rem 2.5rem; border: none; border-radius: 8px; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; cursor: pointer; width: 100%; transition: all 0.3s; }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(204,0,0,0.3); }
+        footer { background: var(--navy); color: var(--white); padding: 4rem 5% 2rem; }
+        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-section h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; margin-bottom: 1.2rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.7rem; }
+        .footer-section a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.3s; }
+        .footer-section a:hover { color: var(--orange); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem; text-align: center; opacity: 0.6; font-size: 0.9rem; }
+        @media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><img src="https://www.sdnetwork.ca/wp-content/uploads/2023/03/SDN-Light.png" alt="SDN"></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="advertisers.html">Advertisers</a></li>
+                <li><a href="venues.html">Venues</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="btn-contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Let's Connect</h1>
+        <p>Ready to reach your community where they actually gather? Let's talk.</p>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Whether you're looking to advertise in your local market, expand nationally, or explore partnership opportunities for your venue, we're here to help.</p>
+                <div class="contact-method">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p><a href="tel:647-405-4988">647-405-4988</a></p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:info@sdnetwork.ca">info@sdnetwork.ca</a></p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>Headquarters</h3>
+                        <p>Toronto, Ontario<br>Serving communities across Canada</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel">
+                    </div>
+                    <div class="form-group">
+                        <label>I'm interested in... *</label>
+                        <select required>
+                            <option value="">Select an option</option>
+                            <option>National Advertising</option>
+                            <option>Local Advertising</option>
+                            <option>Venue Partnership</option>
+                            <option>Other Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder="Tell us about your goals..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about"><p>Canada's premium digital out-of-home network, connecting brands with communities in the spaces where people come together.</p></div>
+            <div class="footer-section">
+                <h4>For Advertisers</h4>
+                <ul><li><a href="advertisers.html#national">National Campaigns</a></li><li><a href="advertisers.html#local">Local Reach</a></li><li><a href="resources.html">Case Studies</a></li></ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul><li><a href="about.html">About Us</a></li><li><a href="venues.html">Partner Venues</a></li><li><a href="resources.html">Resources</a></li></ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul><li><a href="contact.html">Contact Us</a></li><li><a href="tel:647-405-4988">647-405-4988</a></li><li><a href="mailto:info@sdnetwork.ca">info@sdnetwork.ca</a></li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Sports Digital Network. All rights reserved.</p></div>
+    </footer>
+</body>
+</html>

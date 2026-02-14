@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Digital Network - Where Community Comes Together</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --navy: #003366; --red: #CC0000; --orange: #FF6600; --cream: #FAFAF8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Work Sans', sans-serif; color: #333; }
+        nav { position: fixed; top: 0; width: 100%; background: var(--navy); z-index: 1000; padding: 1rem 0; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 50px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--orange); }
+        .btn-nav { background: var(--red); padding: 0.6rem 1.4rem; border-radius: 6px; }
+        .hero { background: linear-gradient(135deg, var(--navy), #004d99); padding: 100px 5% 80px; margin-top: 70px; }
+        .hero-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
+        .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 6vw, 5.5rem); color: #fff; line-height: 1.05; margin-bottom: 1.5rem; }
+        .hero h1 .highlight { color: var(--orange); }
+        .hero p { font-size: 1.25rem; color: rgba(255,255,255,0.9); margin-bottom: 2.5rem; line-height: 1.7; }
+        .hero-buttons { display: flex; gap: 1rem; }
+        .btn { padding: 1rem 2rem; border-radius: 6px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .btn-primary { background: var(--red); color: #fff; }
+        .btn-primary:hover { background: var(--orange); transform: translateY(-2px); }
+        .btn-secondary { background: transparent; color: #fff; border: 2px solid #fff; }
+        .btn-secondary:hover { background: #fff; color: var(--navy); }
+        .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .stat-box { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); text-align: center; }
+        .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--orange); line-height: 1; margin-bottom: 0.5rem; }
+        .stat-label { color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 500; letter-spacing: 0.5px; }
+        .insight { background: var(--cream); padding: 6rem 5%; }
+        .insight-container { max-width: 1100px; margin: 0 auto; text-align: center; }
+        .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 4rem); color: var(--navy); margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.15rem; color: #666; margin-bottom: 3rem; }
+        .insight-box { background: var(--navy); color: #fff; padding: 3rem 2.5rem; border-radius: 12px; font-size: 1.35rem; line-height: 1.7; margin-bottom: 4rem; }
+        .insight-box strong { color: var(--orange); }
+        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+        .feature { background: #fff; padding: 2.5rem 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; text-align: center; }
+        .feature:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.12); }
+        .feature-icon { font-size: 3rem; margin-bottom: 1.5rem; }
+        .feature h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 1rem; }
+        .feature p { color: #666; line-height: 1.7; }
+        .venues { background: #fff; padding: 6rem 5%; }
+        .venues-container { max-width: 1400px; margin: 0 auto; }
+        .venues-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 3rem; }
+        .venue-card { position: relative; height: 400px; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.1); }
+        .venue-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .venue-card:hover img { transform: scale(1.08); }
+        .venue-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2.5rem; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); color: #fff; }
+        .venue-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; margin-bottom: 0.5rem; }
+        .cta { background: linear-gradient(135deg, var(--red), var(--orange)); padding: 5rem 5%; text-align: center; color: #fff; }
+        .cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 3.8rem); margin-bottom: 1.2rem; }
+        .cta p { font-size: 1.2rem; margin-bottom: 2.5rem; }
+        .btn-white { background: #fff; color: var(--red); padding: 1.1rem 2.5rem; border-radius: 6px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s; }
+        .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        footer { background: var(--navy); color: #fff; padding: 3.5rem 5% 2rem; }
+        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+        .footer-section h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; margin-bottom: 1rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 0.65rem; }
+        .footer-section a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.92rem; transition: color 0.3s; }
+        .footer-section a:hover { color: var(--orange); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem; text-align: center; opacity: 0.6; font-size: 0.88rem; }
+        @media (max-width: 1024px) { .hero-grid, .features, .venues-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero { padding: 80px 5% 60px; } .hero h1 { font-size: 2.8rem; } .stats { grid-template-columns: 1fr 1fr; } .insight { padding: 4rem 5%; } .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><img src="https://www.sdnetwork.ca/wp-content/uploads/2023/03/SDN-Light.png" alt="Sports Digital Network"></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="advertisers.html">Advertisers</a></li>
+                <li><a href="venues.html">Venues</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="btn-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-grid">
+            <div>
+                <h1>Where Community <span class="highlight">Comes Together</span></h1>
+                <p>In the arenas where families meet after work, on the greens where deals are made, and in the spaces where kids chase dreams—your brand becomes part of the moments that matter.</p>
+                <div class="hero-buttons">
+                    <a href="advertisers.html" class="btn btn-primary">For Advertisers</a>
+                    <a href="venues.html" class="btn btn-secondary">Partner With Us</a>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-box"><div class="stat-number">3.6M</div><div class="stat-label">Weekly Visits</div></div>
+                <div class="stat-box"><div class="stat-number">100+</div><div class="stat-label">Premium Venues</div></div>
+                <div class="stat-box"><div class="stat-number">35M</div><div class="stat-label">Impressions/Week</div></div>
+                <div class="stat-box"><div class="stat-number">350</div><div class="stat-label">Ad Plays/Day</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insight">
+        <div class="insight-container">
+            <h2 class="section-title">The Local Media Gap</h2>
+            <p class="section-subtitle">As local newspapers closed, radio stations consolidated, and storefront windows went dark, something remarkable happened.</p>
+            <div class="insight-box">
+                <strong>Community gathering places didn't disappear—they got busier.</strong><br><br>
+                The arenas, golf courses, and rec centers where people show up for each other week after week became the last true local hubs. And that's where your message belongs.
+            </div>
+            <div class="features">
+                <div class="feature"><div class="feature-icon">🎯</div><h3>Captive Attention</h3><p>Your audience isn't scrolling. They're present, engaged, and spending quality time in our venues—an average of 90 minutes per visit.</p></div>
+                <div class="feature"><div class="feature-icon">🏘️</div><h3>True Local Reach</h3><p>Connect with families, decision-makers, and community leaders right where they gather—no wasted impressions on people outside your market.</p></div>
+                <div class="feature"><div class="feature-icon">⚡</div><h3>Premium Context</h3><p>Your brand appears in venues that communities are proud of—spaces associated with achievement, family time, and positive moments.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="venues">
+        <div class="venues-container">
+            <h2 class="section-title" style="text-align: center;">Our Network</h2>
+            <p class="section-subtitle" style="text-align: center;">Premium facilities across Canada's most vibrant communities</p>
+            <div class="venues-grid">
+                <div class="venue-card">
+                    <img src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=800&h=600&fit=crop" alt="Multi-Pad Arenas">
+                    <div class="venue-overlay"><h3>Multi-Pad Arenas</h3><p>Where families gather and communities connect every week</p></div>
+                </div>
+                <div class="venue-card">
+                    <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&h=600&fit=crop" alt="Premium Golf Courses">
+                    <div class="venue-overlay"><h3>Premium Golf Courses</h3><p>Exclusive access to affluent, decision-making demographics</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to Be Where Community Happens?</h2>
+        <p>Let's talk about bringing your brand into the spaces that matter most to your customers.</p>
+        <a href="contact.html" class="btn-white">Get Started Today</a>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about"><p>Canada's premium digital out-of-home network, connecting brands with communities in the spaces where people come together.</p></div>
+            <div class="footer-section"><h4>For Advertisers</h4><ul><li><a href="advertisers.html#national">National Campaigns</a></li><li><a href="advertisers.html#local">Local Reach</a></li><li><a href="resources.html">Case Studies</a></li></ul></div>
+            <div class="footer-section"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="venues.html">Partner Venues</a></li><li><a href="resources.html">Resources</a></li></ul></div>
+            <div class="footer-section"><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="tel:647-405-4988">647-405-4988</a></li><li><a href="mailto:info@sdnetwork.ca">info@sdnetwork.ca</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Sports Digital Network. All rights reserved.</p></div>
+    </footer>
+</body>
+</html>
